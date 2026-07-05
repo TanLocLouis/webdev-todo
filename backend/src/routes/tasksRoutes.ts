@@ -1,9 +1,15 @@
 import { Router } from 'express';
 import { validateRequest } from '../middlewares/validateMiddleware';
 import tasksController from '../controllers/tasksController';
-import { createTaskValidator, updateTaskValidator, taskIdValidator } from '../validators/tasksValidator';
+import { createTaskValidator, updateTaskValidator, taskIdValidator, listTasksValidator } from '../validators/tasksValidator';
 
 const router = Router();
+
+router.get('/',
+    listTasksValidator,
+    validateRequest,
+    tasksController.listTasks
+)
 
 router.post('/',
     createTaskValidator,

@@ -24,4 +24,13 @@ export class TasksService {
   async toggleComplete(id: string): Promise<ITask | null> {
     return await this.tasksRepository.toggleComplete(id);
   }
+
+  async listTasks(filters: {
+    search?: string;
+    completed?: boolean;
+    page: number;
+    limit: number;
+  }): Promise<{ tasks: ITask[]; total: number }> {
+    return await this.tasksRepository.list(filters);
+  }
 }

@@ -21,6 +21,41 @@ export class TasksController {
     }
   };
 
+  listTasks = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const search = req.query.search as string | undefined;
+      const completedQuery = req.query.completed as string | undefined;
+      const page = parseInt(req.query.page as string) || 1;
+      const limit = parseInt(req.query.limit as string) || 10;
+
+      let completed: boolean | undefined;
+      if (completedQuery === 'true') completed = true;
+      if (completedQuery === 'false') completed = false;
+
+      const { tasks, total } = await this.tasksService.listTasks({
+        search,
+        completed,
+        page,
+        limit,
+      });
+
+      res.status(200).json({
+        success: true,
+        data: {
+          tasks,
+          pagination: {
+            total,
+            page,
+            limit,
+            totalPages: Math.ceil(total / limit),
+          },
+        },
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
   updateTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { id } = req.params as { id: string };

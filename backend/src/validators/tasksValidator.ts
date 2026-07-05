@@ -1,4 +1,4 @@
-import { body, param } from 'express-validator';
+import { body, param, query } from 'express-validator';
 
 export const taskIdValidator = [
   param('id')
@@ -40,4 +40,25 @@ export const updateTaskValidator = [
     .optional()
     .isBoolean()
     .withMessage('Completed must be a boolean'),
+];
+
+export const listTasksValidator = [
+  query('page')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('Page must be a positive integer')
+    .toInt(),
+  query('limit')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('Limit must be a positive integer')
+    .toInt(),
+  query('completed')
+    .optional()
+    .isBoolean()
+    .withMessage('Completed must be a boolean'),
+  query('search')
+    .optional()
+    .isString()
+    .withMessage('Search term must be a string'),
 ];

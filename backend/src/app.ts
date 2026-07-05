@@ -9,7 +9,7 @@ export function createApp(): Application {
   app.use(cors({
     // [NOTE]: I disable cors for testing
     origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type'],
   }));
   app.use(express.json());

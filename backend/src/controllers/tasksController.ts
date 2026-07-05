@@ -20,6 +20,67 @@ export class TasksController {
       next(error);
     }
   };
+
+  updateTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const { id } = req.params as { id: string };
+      const { title, description, completed } = req.body;
+      const task = await this.tasksService.updateTask(id, { title, description, completed });
+      if (!task) {
+        res.status(404).json({
+          success: false,
+          message: 'Task not found',
+        });
+        return;
+      }
+      res.status(200).json({
+        success: true,
+        data: task,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  deleteTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const { id } = req.params as { id: string };
+      const task = await this.tasksService.deleteTask(id);
+      if (!task) {
+        res.status(404).json({
+          success: false,
+          message: 'Task not found',
+        });
+        return;
+      }
+      res.status(200).json({
+        success: true,
+        message: 'Task deleted successfully',
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  toggleCompleteTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const { id } = req.params as { id: string };
+      const task = await this.tasksService.toggleComplete(id);
+      if (!task) {
+        res.status(404).json({
+          success: false,
+          message: 'Task not found',
+        });
+        return;
+      }
+      res.status(200).json({
+        success: true,
+        data: task,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 
 const tasksController = new TasksController();

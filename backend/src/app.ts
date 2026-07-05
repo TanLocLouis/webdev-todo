@@ -1,5 +1,6 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import tasksRouter from './routes/tasksRoutes';
 
 export function createApp(): Application {
   const app = express();
@@ -8,7 +9,7 @@ export function createApp(): Application {
   app.use(cors({
     // [NOTE]: I disable cors for testing
     origin: '*',
-    methods: ['GET'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
   }));
   app.use(express.json());
@@ -19,6 +20,7 @@ export function createApp(): Application {
   });
 
   // Routes
+  app.use('/api/v1/tasks', tasksRouter);
 
   // 404 Route
   app.use((_req: Request, res: Response) => {

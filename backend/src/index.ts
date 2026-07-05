@@ -1,13 +1,17 @@
 import 'dotenv/config';
 import { createApp } from './app';
+import { connectDatabase } from './config/db';
 
 const PORT = process.env.PORT ?? 3001;
+
+// Connect to MongoDB
+connectDatabase();
 
 const app = createApp();
 
 app.listen(PORT, () => {
-  console.log(`G-Scores API is running on http://localhost:${PORT}`);
-  console.log(`API Status: http://localhost:${PORT}/api/health`);
+  console.log(`TODO LIST API is running on http://localhost:${PORT}`);
+  console.log(`API Status: http://localhost:${PORT}/api/v1/health`);
 });
 
 // Prevent Node process from crashing

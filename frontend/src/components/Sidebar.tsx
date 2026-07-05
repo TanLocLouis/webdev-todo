@@ -100,7 +100,7 @@ export default function Sidebar() {
 
         {/* Footer */}
         <div className="px-6 py-4 border-t border-slate-100">
-          <p className="text-[10px] text-slate-400 text-center font-medium">© 2024 G-Scores</p>
+          <p className="text-[10px] text-slate-400 text-center font-medium">© TODO LIST</p>
         </div>
       </aside>
     </>

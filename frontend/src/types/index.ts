@@ -1,32 +1,22 @@
-export interface ScoreEntry {
-  subject: string;
-  displayName: string;
-  score: number | null;
-  band: '>=8' | '[6,8)' | '[4,6)' | '<4' | 'N/A';
-  bandColor: string;
+export interface Task {
+  id: string;
+  title: string;
+  description: string;
+  completed: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 
-export interface StudentResult {
-  sbd: string;
-  ma_ngoai_ngu: string | null;
-  scores: ScoreEntry[];
+export interface PaginationInfo {
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
 }
 
-export interface BandCount {
-  band: string;
-  count: number;
-}
-
-export interface SubjectStatistic {
-  subject: string;
-  displayName: string;
-  bands: BandCount[];
-}
-
-export interface TopGroupAStudent {
-  sbd: string;
-  total_score: number;
-  scores: ScoreEntry[];
+export interface PaginatedTasksResponse {
+  tasks: Task[];
+  pagination: PaginationInfo;
 }
 
 export interface ApiResponse<T> {

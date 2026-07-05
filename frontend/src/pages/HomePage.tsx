@@ -217,10 +217,10 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4 text-slate-800">
-            Task <span className="gradient-text">Flow</span>
+            TODO List
           </h1>
           <p className="text-slate-500 text-base sm:text-lg max-w-md mx-auto font-medium">
-            Manage, search, and keep track of your daily notes and achievements.
+            Create and manage tasks.
           </p>
         </div>
       </header>

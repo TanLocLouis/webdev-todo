@@ -4,6 +4,8 @@
 # DEMO
 https://webdev-todo-itiv.vercel.app
 
+![](./docs/Screenshot_20260706_122926.png)
+
 # Features
 - Show tasks list.
 - Add new tasks.

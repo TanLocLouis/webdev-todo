@@ -1,6 +1,9 @@
 # TODO LIST
 - This is a simple `TODO LIST` web app allows users to create and manage tasks.
 
+# DEMO
+https://webdev-todo-itiv.vercel.app
+
 # Features
 - Show tasks list.
 - Add new tasks.
@@ -29,12 +32,6 @@
 - MongoDB.
 
 # Installation
-
-## Prerequisites
-- [Node.js](https://nodejs.org/) (v20+ recommended)
-- [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
-
----
 
 ## 🐳 Docker Deployment (Recommended)
 
@@ -104,3 +101,13 @@ npm install
 npm run dev
 ```
 Open your browser and navigate to `http://localhost:5173`.
+
+# Unit test
+- All Unit tests is in `/src/__tests__` folder.
+- The Unit tests will test tasks service.
+- To run test in `/backend` folder.
+```
+npm run test
+```
+
+# Contribution

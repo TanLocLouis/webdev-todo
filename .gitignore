@@ -5,3 +5,4 @@ frontend/.vite
 frontend/dist
 backend/.env
 frontend/.env
+docs/MongoDB/mongo_data
